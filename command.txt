@@ -1,0 +1,41 @@
+// SockJS 라이브러리 로드
+
+const sockjsScript = document.createElement("script");
+sockjsScript.src = "https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js";
+document.head.appendChild(sockjsScript);
+
+// STOMP 라이브러리 로드
+const stompScript = document.createElement("script");
+stompScript.src = "https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js";
+document.head.appendChild(stompScript);
+
+console.log("✅ SockJS & STOMP.js 로드 완료!");
+
+// 웹소켓 연결
+
+const socket = new SockJS("http://localhost:8080/ws-stomp"); // 서버 주소
+const stompClient = Stomp.over(socket);
+
+stompClient.connect({}, function (frame) {
+    console.log("✅ 연결 성공: " + frame);
+}, function (error) {
+    console.error("❌ 연결 실패: " + error);
+});
+
+// 메세지 구독
+
+stompClient.subscribe("/sub/channel/100", function (message) {
+    console.log("📩 받은 메시지: ", message.body);
+});
+
+
+// 메세지 발행
+stompClient.send("/pub/channel", {}, JSON.stringify({
+    channelId: "100",
+    message: "Hello, WebSocket!"
+}));
+
+// 연결 해제
+stompClient.disconnect(function () {
+    console.log("🔌 연결 종료");
+});
