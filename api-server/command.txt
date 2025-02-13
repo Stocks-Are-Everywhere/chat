@@ -31,8 +31,9 @@ stompClient.subscribe("/sub/channel/100", function (message) {
 
 // 메세지 발행
 stompClient.send("/pub/channel", {}, JSON.stringify({
-    channelId: "100",
-    message: "Hello, WebSocket!"
+    userId: "123",
+    groupId: "100",
+    content: "Hello, WebSocket!"
 }));
 
 // 연결 해제

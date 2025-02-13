@@ -17,6 +17,7 @@ import java.util.Map;
 public class SocketController {
     private final SimpMessageSendingOperations simpleMessageSendingOperations;
     private final ChatService chatService;
+
     /* URL에 channel 문자열을 감지하여 해당 메서드가 작동한다. 메세지 수신을 담당한다 */
     @MessageMapping("/channel")
     public void sendMessage(Map<String, Object> params) { /* 메세지 발행 메서드 */
@@ -32,4 +33,6 @@ public class SocketController {
         /* 첫번째 인자에 사용된 문자열을 구독하는 모든 소비자에게 -> 두번째 인자 정보를 전달한다 */
         simpleMessageSendingOperations.convertAndSend("/sub/channel/" + params.get("groupId"), params);
     }
+
+
 }
