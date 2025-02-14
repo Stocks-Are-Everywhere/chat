@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: chat
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${SPRING_DATASOURCE_URL:${yml.file.datasource.url}}
+    username: ${SPRING_DATASOURCE_USERNAME:${yml.file.datasource.username}}
+    password: ${SPRING_DATASOURCE_PASSWORD:${yml.file.datasource.password}}
+
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
