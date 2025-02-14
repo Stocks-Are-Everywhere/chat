@@ -21,8 +21,6 @@ public class StompHandler implements ChannelInterceptor {
                     System.out.println("✅ STOMP CONNECT 감지! 세션 ID: " + sessionId);
             case DISCONNECT ->
                     System.out.println("❌ STOMP DISCONNECT 감지! 세션 ID: " + sessionId);
-            case null ->
-                    System.out.println("command is null");
             default -> {}
 
         }

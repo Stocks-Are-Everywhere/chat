@@ -19,4 +19,6 @@ public class Chat {
     long groupId;
     @Column
     String content;
+    @Column
+    String username;
 }
