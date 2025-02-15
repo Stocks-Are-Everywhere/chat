@@ -2,16 +2,16 @@ package com.one.chat.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity(name = "chat")
+@Document(collection = "chat")
 public class Chat {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     @Column
     long userId;

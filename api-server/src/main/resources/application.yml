@@ -8,6 +8,10 @@ spring:
     username: ${SPRING_DATASOURCE_USERNAME:${yml.file.datasource.username}}
     password: ${SPRING_DATASOURCE_PASSWORD:${yml.file.datasource.password}}
 
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/chatdb
+      database: chatdb
   jpa:
     hibernate.ddl-auto: update
     show-sql: true
