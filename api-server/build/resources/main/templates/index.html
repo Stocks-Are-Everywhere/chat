@@ -20,8 +20,8 @@
     document.getElementById("session-id").innerText = sessionId;
 
     // 웹소켓 연결
-    // const socket = new WebSocket("ws://localhost:8080/ws-stomp"); // 소켓 서버 주소
-    const socket = new SockJS("ws://3.38.68.180:8080/ws-stomp"); // 원격 서버 주소
+    // const socket = new SockJS("http://localhost:8080/ws-stomp"); // 로컬 서버 주소
+    const socket = new SockJS("http://3.38.68.180:8080/ws-stomp"); // 원격 서버 주소
     const stompClient = Stomp.over(socket);
 
     stompClient.connect({}, function (frame) {

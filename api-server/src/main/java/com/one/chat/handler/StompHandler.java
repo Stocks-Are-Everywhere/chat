@@ -13,8 +13,8 @@ public class StompHandler implements ChannelInterceptor {
     public void postSend(Message message, MessageChannel channel, boolean sent) {
         StompHeaderAccessor accessor = StompHeaderAccessor.wrap(message);
         String sessionId = accessor.getSessionId();
-        System.out.println("==================================================");
-        System.out.println("Command : " + accessor.getCommand());
+        //System.out.println("==================================================");
+        //System.out.println("Command : " + accessor.getCommand());
 
         switch (accessor.getCommand()) {
             case CONNECT ->
@@ -24,7 +24,7 @@ public class StompHandler implements ChannelInterceptor {
             default -> {}
 
         }
-        System.out.println("==================================================");
+        //System.out.println("==================================================");
     }
 
 

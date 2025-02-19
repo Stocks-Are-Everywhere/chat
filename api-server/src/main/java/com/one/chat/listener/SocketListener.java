@@ -19,12 +19,12 @@ public class SocketListener {
     @EventListener
     /* 소켓 연결 성공 반환 메서드 */
     public void handleWebSocketConnectListener(SessionConnectEvent event) {
-        System.out.println("Received a new web socket connection");
+        //System.out.println("Received a new web socket connection");
     }
 
     @EventListener
     /* 소켓 해제 성공 반환 메서드 */
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
-        System.out.println("Received a new web socket disconnection");
+        //System.out.println("Received a new web socket disconnection");
     }
 }

@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ChatService {
     private final ChatMongoRepo chatMongoRepo;
-
-
     public Chat createChatMongo(Chat chat){
         return chatMongoRepo.save(chat);
     }
